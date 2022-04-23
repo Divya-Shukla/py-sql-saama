@@ -1,3 +1,16 @@
+'''
+Python Questions:
+TASK 1
+One of our products is in charge of downloading and ingesting millions of records from our clients.
+Recently during ingesting a large dataset we had our entire DB(postgres) go down and the entire ingestion process from a pandas dataframe to sql took around 2-3 hours because of the RAM unavailability. Now this has two simple fixes
+
+- Increase ram/ scale the db on demand
+- change our code to accommodate these restrictions and make the entire ingestion process much faster on the way.
+
+How would you approach this? We are not looking for a full blown ingestion logic. Just a small script to take a given csv file and upload it to DB in an efficient manner.
+Write code to take a large csv file( > 1GB ) and ingest it to table - public.test_od
+'''
+
 #Function to load data from csv to a postgres db table
 
 import psycopg2
