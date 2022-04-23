@@ -9,3 +9,5 @@ Python task 2 solution url: https://github.com/Divya-Shukla/py-sql-saama/blob/ma
 * The excel file name "data_to_merge.xlsx" has task 2 example data on which data manipulation has been performed in py_task 2.ipynb notebook 
 
 SQL task 1 solutions url: https://github.com/Divya-Shukla/py-sql-saama/blob/main/sql%20task%201.txt
+
+"Python, SQL (Take Home).docx" file have list of questions
