@@ -1,0 +1,58 @@
+1) Cities frequently visited?
+
+select ci.City_name, COUNT(City_id_visited) as total_visits
+from city ci join visits v on v.City_id_visited = ci.City_id
+order by total_visits DESC limit 1 
+
+2) Customers visited more than 1 city?
+
+select Customer_id
+from visits 
+group by (Customer_id)
+having count(City_id_visited) > 1
+
+3) Cities visited breakdown by gender?
+
+select cu.gender as gender, v.count(distinct city_id_visited) as no_of_vists
+from visits as v join customer as cu on v.customer_id = cu.customer_id
+group by gender
+
+
+4) List the city names that are not visited by every customer and order them by the expense budget in ascending order?
+
+select city_name,
+from city ci join visits vi on ci.city_id = vi.city_id_visited
+where v.customer_id <> (select customer_id 
+			from visits 
+			where count(distinct city_id_visited <> max(count(distinct(customer_id))) 
+			group by customer_id )
+group by city_id_visited
+order by expense 
+ 
+
+5) Visit/travel Percentage for every customer? 
+
+select (distinct(expense)/travel)*100 as visit_travel_percentage
+from visits c join customer on v.customer_id = cu.customer_id
+join city ci on ci.city_id = v.city_id_visited
+where travel = (select sum(expense) as total_expense
+		from visits c join customer on v.customer_id = cu.customer_id
+		join city ci on ci.city_id = v.city_id_visited
+		group by v.customer_id)
+group by customer_id
+
+
+6) Total expense incurred by customers on their visits?
+
+select 	cu.customer_name, sum(expense) as total_expense
+from visits c join customer on v.customer_id = cu.customer_id
+join city ci on ci.city_id = v.city_id_visited
+group by v.customer_id 
+
+
+7) list the Customer details along with the city they first visited and the date of visit?
+select cu.customer_id, cu.customer_name, cu.gender, cu.age, ci.city_name as city_name, min(date_visited) as date_of_visit
+from visits c join customer on v.customer_id = cu.customer_id
+join city ci on ci.city_id = v.city_id_visited 
+group by vi.customer_id
+
