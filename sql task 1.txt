@@ -1,3 +1,18 @@
+Visits				Customer			
+Customer_id	City_id_visited	Date_visited		Customer_id	Customer_name	Gender	Age
+1001	2003	1-Jan-03		1001	John	M	25
+1001	2004	1-Jan-04		1002	Mark	M	40
+1002	2001	1-Jan-01		1003	Martha	F	55
+1004	2003	1-Jan-03		1004	Selena	F	34
+
+City		
+City_id	City_name	Expense
+2001	Chicago	500
+2002	Newyork	1000
+2003	SFO	2000
+2004	Florida	800
+
+
 1) Cities frequently visited?
 
 select ci.City_name, COUNT(City_id_visited) as total_visits
